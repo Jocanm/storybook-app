@@ -1,7 +1,28 @@
 {
-  "name": "my-storybook",
+  "name": "jam-my-storybook-components",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jocanm/storybook-app"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "typescript": ">=4.0.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
@@ -17,10 +38,12 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "build-storybook",
+    "build": "yarn clean && tsc && yarn copy-files",
+    "copy-files":"copyfiles -u 1 src/**/*.css dist/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=7f15cab9f72c"
+    "chromatic": "npx chromatic --project-token=7f15cab9f72c",
+    "clean":"rimraf dist/"
   },
   "eslintConfig": {
     "extends": [

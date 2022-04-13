@@ -1,6 +1,6 @@
 import './myLabel.css'
 
-interface MyLabelProps {
+export interface MyLabelProps {
     /**
     * Texto que irá dentro del label
     */
