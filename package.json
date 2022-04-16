@@ -39,11 +39,11 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "yarn clean && tsc && yarn copy-files",
-    "copy-files":"copyfiles -u 1 src/**/*.css dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=7f15cab9f72c",
-    "clean":"rimraf dist/"
+    "clean": "rimraf dist/"
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +65,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@semantic-release/npm": "^9.0.1",
     "@storybook/addon-actions": "^6.5.0-alpha.61",
     "@storybook/addon-essentials": "^6.5.0-alpha.61",
     "@storybook/addon-interactions": "^6.5.0-alpha.61",
@@ -76,5 +77,13 @@
     "babel-loader": "^8.2.4",
     "chromatic": "^6.5.4",
     "storybook-dark-mode": "^1.0.9"
-  }
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
 }
